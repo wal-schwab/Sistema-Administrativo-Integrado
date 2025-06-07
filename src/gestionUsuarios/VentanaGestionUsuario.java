@@ -21,7 +21,7 @@ public class VentanaGestionUsuario extends VentanaEstandarAplicacion implements 
 	JButton volver;
 
 	public VentanaGestionUsuario(String legajo, String nombreRol) {
-		super("Usuario - " + legajo + " ("+nombreRol+")");
+		super("Gestión de Usuarios - " + legajo + " ("+nombreRol+")");
 		
 		this.rolUsuario = nombreRol;
 		this.legajo = legajo;

@@ -22,7 +22,7 @@ public class VentanaGestionProveedor extends VentanaEstandarAplicacion implement
 	JButton volver;
 
 	public VentanaGestionProveedor(String legajo, String nombreRol) {
-		super("Usuario - " + legajo + " ("+nombreRol+")");
+		super("Gestión de Proveedores - " + legajo + " ("+nombreRol+")");
 		
 		this.rolUsuario = nombreRol;
 		this.legajo = legajo;

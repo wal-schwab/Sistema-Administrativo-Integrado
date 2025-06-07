@@ -22,7 +22,7 @@ public class VentanaGestionInversion extends VentanaEstandarAplicacion implement
 	JButton volver;
 
 	public VentanaGestionInversion(String legajo, String nombreRol) {
-		super("Usuario - " + legajo + " ("+nombreRol+")");
+		super("Gestión de Inversiones - " + legajo + " ("+nombreRol+")");
 		
 		this.rolUsuario = nombreRol;
 		this.legajo = legajo;

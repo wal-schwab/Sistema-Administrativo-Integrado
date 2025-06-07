@@ -22,7 +22,7 @@ public class VentanaGestionGasto extends VentanaEstandarAplicacion implements Ac
 	JButton volver;
 
 	public VentanaGestionGasto(String legajo, String nombreRol) {
-		super("Usuario - " + legajo + " ("+nombreRol+")");
+		super("Gestión de Gastos - " + legajo + " ("+nombreRol+")");
 		
 		this.rolUsuario = nombreRol;
 		this.legajo = legajo;

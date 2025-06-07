@@ -22,7 +22,7 @@ public class VentanaGestionPresupuesto extends VentanaEstandarAplicacion impleme
 	JButton volver;
 	
 	public VentanaGestionPresupuesto(String legajo, String nombreRol) {
-		super("Usuario - " + legajo + " ("+nombreRol+")");
+		super("Gestión de Presupuestos - " + legajo + " ("+nombreRol+")");
 		
 		this.rolUsuario = nombreRol;
 		this.legajo = legajo;

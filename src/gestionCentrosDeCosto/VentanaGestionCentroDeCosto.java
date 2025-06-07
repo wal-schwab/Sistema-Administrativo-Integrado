@@ -22,7 +22,7 @@ public class VentanaGestionCentroDeCosto extends VentanaEstandarAplicacion imple
 	JButton volver;
 
 	public VentanaGestionCentroDeCosto(String legajo, String nombreRol) {
-		super("Usuario - " + legajo + " ("+nombreRol+")");
+		super("Gestión de Centro de Costos - " + legajo + " ("+nombreRol+")");
 		
 		this.rolUsuario = nombreRol;
 		this.legajo = legajo;
