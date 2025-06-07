@@ -13,7 +13,7 @@ public class PanelConFondoEA extends JPanel {
 	
 	public PanelConFondoEA() {
 		
-		imagenFondo = new ImageIcon("images/logoFondo.png");
+		imagenFondo = new ImageIcon("resources/images/logoFondo.png");
 		fondo = new JLabel(imagenFondo);
 		fondo.setBounds(500, 40, 600, 600);
 		add(fondo);

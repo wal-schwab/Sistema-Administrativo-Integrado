@@ -20,7 +20,7 @@ public abstract class VentanaEstandarInicial extends JFrame {
 	
 	public VentanaEstandarInicial(String titulo) {
 		setTitle(titulo);
-		ImageIcon logo = new ImageIcon("images/logo.png");
+		ImageIcon logo = new ImageIcon("resources/images/Icon.png");
 		setIconImage(logo.getImage());
 		Toolkit miPantalla = Toolkit.getDefaultToolkit();
 		Dimension tamanoPantalla = miPantalla.getScreenSize();

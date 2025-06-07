@@ -28,7 +28,7 @@ public class VentanaGestionCentroDeCosto extends VentanaEstandarAplicacion imple
 		this.legajo = legajo;
 		
 	
-		panel.add(agregarBotonImagen("Volver", new ImageIcon("images/imageBack.png"), 10, 10, 60, 40, 0, true));
+		panel.add(agregarBotonImagen("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));
 		if(nombreRol.equals("Solo lectura")){
 			panel.add(agregarBoton("Crear Centro de Costo",  80, 90, 270, 60, 16, false));

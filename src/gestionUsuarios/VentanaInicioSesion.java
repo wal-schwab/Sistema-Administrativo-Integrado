@@ -27,7 +27,7 @@ public class VentanaInicioSesion extends VentanaEstandarInicial implements Actio
 		super("SAI - Iniciar Sesión");
 
 		panel.add(agregarLabel("Inicio Sesión",95,50,180,50,25));
-		panel.add(agregarLabelImagen("images/icon.png", 100, 65, 130, 130));
+		panel.add(agregarLabelImagen("resources/images/icon.png", 100, 65, 130, 130));
 		panel.add(agregarLabel("Legajo", 140, 175,100,30,15));
 		textoLegajo = agregarTextField("textoLegajo", 45, 210,255,30,15);
 		panel.add(textoLegajo);

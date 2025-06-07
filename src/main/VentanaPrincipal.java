@@ -17,7 +17,7 @@ public class VentanaPrincipal extends VentanaEstandarInicial implements ActionLi
 		
 		
 		
-		panel.add(agregarLabelImagen("images/logo.png",45,80,270,270));
+		panel.add(agregarLabelImagen("resources/images/logo.png",45,80,270,270));
 		panel.add(agregarLabel("Bienvenido", 115, 45,300,30,25));
 		panel.add(agregarBoton("Iniciar Sesión", 85, 375,200,40,16));
 		panel.add(agregarBoton("Registrarse", 85, 420,200,40,16));
