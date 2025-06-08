@@ -19,7 +19,7 @@ import main.VentanaPrincipal;
 public class VentanaRegistro extends VentanaEstandarInicial implements ActionListener{
 	
 	private JTextField textoNombre, textoApellido, textoLegajo;
-	private JButton botonValidarLegajo, botonRegistrase, botonVolver;
+	private JButton validarDatos, botonRegistrase, botonVolver;
 	private JPasswordField textoContrasena, textoRepetirContrasena;
 	private int numLegajo;
 	private String nombre, apellido, contrasena;
@@ -38,8 +38,8 @@ public class VentanaRegistro extends VentanaEstandarInicial implements ActionLis
 		panel.add(agregarLabel("Legajo:", 10, 170, 80, 30, 15));
 		textoLegajo = agregarTextField("", 90, 170, 200, 30, 15);
 		panel.add(textoLegajo);
-		botonValidarLegajo = agregarBoton("Validar Legajo", 90, 215, 200, 40, 16);
-		panel.add(botonValidarLegajo);
+		validarDatos = agregarBoton("Validar datos", 90, 215, 200, 40, 16);
+		panel.add(validarDatos);
 		panel.add(agregarLabel("Contraseña", 145, 275, 150, 30, 15));
 		textoContrasena = agregarPasswordField("", 90, 305, 200, 30, 15);
 		textoContrasena.setEnabled(false);
@@ -58,7 +58,7 @@ public class VentanaRegistro extends VentanaEstandarInicial implements ActionLis
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == botonValidarLegajo) {
+		if(e.getSource() == validarDatos) {
 			numLegajo = ControladorRegistro.validarLegajo(textoLegajo.getText());
 			nombre = ControladorRegistro.validarNombreOApellido(textoNombre.getText());
 			apellido = ControladorRegistro.validarNombreOApellido(textoApellido.getText());
@@ -71,20 +71,18 @@ public class VentanaRegistro extends VentanaEstandarInicial implements ActionLis
 				textoRepetirContrasena.setEnabled(true);
 				textoRepetirContrasena.setBackground(new Color(255,255,255));
 				botonRegistrase.setEnabled(true);
-				botonValidarLegajo.setEnabled(false);
+				validarDatos.setEnabled(false);
 			}
 		}else if(e.getSource() == botonRegistrase) {
 			contrasena = ControladorRegistro.validarContrasena(textoContrasena.getPassword(), textoRepetirContrasena.getPassword());
 			if(contrasena.length() > 0) {
 				ControladorRegistro.crearUsuario(nombre, apellido, numLegajo, contrasena);
-				this.setVisible(false);
-				VentanaPrincipal principal = new VentanaPrincipal();
-				principal.setVisible(true);
+				new VentanaPrincipal().setVisible(true);
+				dispose();
 			}
 		}else if(e.getSource() == botonVolver) {
-			this.setVisible(false);
-			VentanaPrincipal principal = new VentanaPrincipal();
-			principal.setVisible(true);
+			new VentanaPrincipal().setVisible(true);
+			dispose();	
 		}
 	}
 	
@@ -129,6 +127,6 @@ public class VentanaRegistro extends VentanaEstandarInicial implements ActionLis
 	}
 
 	@Override
-	public JLabel agregarLabelImagen(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto) {return null;}
+	public JLabel agregarLabel(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto) {return null;}
 
 }

@@ -16,17 +16,16 @@ import main.VentanaAplicacion;
 
 public class VentanaGestionUsuario extends VentanaEstandarAplicacion implements ActionListener {
 	
-	String rolUsuario;
+	String nombreRol;
 	String legajo;
-	JButton volver;
 
 	public VentanaGestionUsuario(String legajo, String nombreRol) {
 		super("Gestión de Usuarios - " + legajo + " ("+nombreRol+")");
 		
-		this.rolUsuario = nombreRol;
+		this.nombreRol = nombreRol;
 		this.legajo = legajo;
 	
-		panel.add(agregarBotonImagen("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
+		panel.add(agregarBoton("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));
 		if(nombreRol.equals("Solo lectura")){
 			panel.add(agregarBoton("Crear Usuario",  80, 90, 270, 60, 16, false));
@@ -55,7 +54,7 @@ public class VentanaGestionUsuario extends VentanaEstandarAplicacion implements 
 	}
 	
 	@Override
-	public JButton agregarBotonImagen(String nombre, ImageIcon imagen, int ubicacionX, int ubicacionY, int ancho,int alto, int tamanoFuente, boolean visible) {
+	public JButton agregarBoton(String nombre, ImageIcon imagen, int ubicacionX, int ubicacionY, int ancho,int alto, int tamanoFuente, boolean visible) {
 		boton = new JButton(nombre,imagen);
 		boton.setBounds(ubicacionX,ubicacionY,ancho,alto);
 		boton.setBackground(new Color(220, 220, 220));
@@ -84,7 +83,10 @@ public class VentanaGestionUsuario extends VentanaEstandarAplicacion implements 
 		}else if(boton.getText().equals("Salir")) {
 			this.dispose();
 		}else if(boton.getText().equals("Volver")){
-			new VentanaAplicacion(legajo, rolUsuario).setVisible(true);
+			new VentanaAplicacion(legajo, nombreRol).setVisible(true);
+			dispose();
+		}else if(boton.getText().equals("Asignar Rol")) {
+			new VentanaAsignarRol(legajo,nombreRol).setVisible(true);
 			dispose();
 		}
 	}
@@ -96,7 +98,7 @@ public class VentanaGestionUsuario extends VentanaEstandarAplicacion implements 
 	public JPasswordField agregarPasswordField(String nombre, int ubicacionX, int ubicacionY, int ancho, int alto, int tamanoFuente) {return null;}
 
 	@Override
-	public JLabel agregarLabelImagen(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto) {return null;}
+	public JLabel agregarLabel(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto) {return null;}
 }
 
 

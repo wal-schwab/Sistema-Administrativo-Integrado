@@ -40,7 +40,7 @@ public abstract class VentanaEstandarInicial extends JFrame {
 	
 	public abstract JLabel agregarLabel(String nombre, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente);
 	
-	public abstract JLabel agregarLabelImagen(String rutaDeImagen, int ubicacionX, int ubicacionY,int ancho, int alto);
+	public abstract JLabel agregarLabel(String rutaDeImagen, int ubicacionX, int ubicacionY,int ancho, int alto);
 	
 	public abstract JTextField agregarTextField(String nombre, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente);
 	

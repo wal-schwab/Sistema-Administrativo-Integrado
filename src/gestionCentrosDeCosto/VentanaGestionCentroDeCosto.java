@@ -28,7 +28,7 @@ public class VentanaGestionCentroDeCosto extends VentanaEstandarAplicacion imple
 		this.legajo = legajo;
 		
 	
-		panel.add(agregarBotonImagen("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
+		panel.add(agregarBoton("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));
 		if(nombreRol.equals("Solo lectura")){
 			panel.add(agregarBoton("Crear Centro de Costo",  80, 90, 270, 60, 16, false));
@@ -57,7 +57,7 @@ public class VentanaGestionCentroDeCosto extends VentanaEstandarAplicacion imple
 	}
 	
 	@Override
-	public JButton agregarBotonImagen(String nombre, ImageIcon imagen, int ubicacionX, int ubicacionY, int ancho,int alto, int tamanoFuente, boolean visible) {
+	public JButton agregarBoton(String nombre, ImageIcon imagen, int ubicacionX, int ubicacionY, int ancho,int alto, int tamanoFuente, boolean visible) {
 		boton = new JButton(nombre,imagen);
 		boton.setBounds(ubicacionX,ubicacionY,ancho,alto);
 		boton.setBackground(new Color(220, 220, 220));
@@ -98,6 +98,6 @@ public class VentanaGestionCentroDeCosto extends VentanaEstandarAplicacion imple
 	public JPasswordField agregarPasswordField(String nombre, int ubicacionX, int ubicacionY, int ancho, int alto, int tamanoFuente) {return null;}
 
 	@Override
-	public JLabel agregarLabelImagen(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto) {return null;}
+	public JLabel agregarLabel(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto) {return null;}
 }
 

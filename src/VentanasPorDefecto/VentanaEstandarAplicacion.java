@@ -1,24 +1,15 @@
 package VentanasPorDefecto;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
-import gestionUsuarios.VentanaInicioSesion;
 
 public abstract class VentanaEstandarAplicacion extends JFrame{
 	
@@ -46,11 +37,11 @@ public abstract class VentanaEstandarAplicacion extends JFrame{
 	
 	public abstract JButton agregarBoton(String nombre, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente, boolean visible);
 	
-	public abstract JButton agregarBotonImagen(String nombre, ImageIcon imagen, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente, boolean visible);
+	public abstract JButton agregarBoton(String nombre, ImageIcon imagen, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente, boolean visible);
 		
 	public abstract JLabel agregarLabel(String nombre, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente);
 	
-	public abstract JLabel agregarLabelImagen(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto);
+	public abstract JLabel agregarLabel(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto);
 	
 	public abstract JTextField agregarTextField(String nombre, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente);
 	

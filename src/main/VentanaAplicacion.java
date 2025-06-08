@@ -100,9 +100,9 @@ public class VentanaAplicacion extends VentanaEstandarAplicacion implements Acti
 	public JPasswordField agregarPasswordField(String nombre, int ubicacionX, int ubicacionY, int ancho, int alto, int tamanoFuente) {return null;}
 
 	@Override
-	public JLabel agregarLabelImagen(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto) {return null;}
+	public JLabel agregarLabel(String rutaDeImagen, int ubicacionX, int ubicacionY, int ancho, int alto) {return null;}
 
 	@Override
-	public JButton agregarBotonImagen(String nombre, ImageIcon imagen, int ubicacionX, int ubicacionY, int ancho,
+	public JButton agregarBoton(String nombre, ImageIcon imagen, int ubicacionX, int ubicacionY, int ancho,
 			int alto, int tamanoFuente, boolean visible) {return null;}
 }
