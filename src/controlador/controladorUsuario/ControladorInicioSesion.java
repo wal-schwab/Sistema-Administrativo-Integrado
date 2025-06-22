@@ -1,4 +1,4 @@
-package controladorUsuario;
+package controlador.controladorUsuario;
 
 import java.sql.SQLException;
 

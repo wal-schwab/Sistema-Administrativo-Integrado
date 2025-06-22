@@ -1,4 +1,4 @@
-package controladorUsuario;
+package controlador.controladorUsuario;
 
 import java.awt.Component;
 import java.sql.SQLException;
@@ -40,9 +40,8 @@ public class ControladorRegistro {
 			        	if(legajoValido) {
 			        		numLegajo = Integer.parseInt(legajo);
 			        		legajoSinUsuario = modelo.comprobarLegajoSinUsuario(numLegajo);
-			        		System.out.println(legajoSinUsuario);
 			        	}
-			        	
+			    
 			        	if(nombreValido && apellidoValido && legajoValido && legajoSinUsuario) {
 			        		usuarioIncompleto = new Usuario(nombre, apellido,numLegajo );
 			        		vista.habilitarContrasenas();

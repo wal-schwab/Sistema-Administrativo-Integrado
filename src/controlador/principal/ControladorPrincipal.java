@@ -1,7 +1,7 @@
 package controlador.principal;
 
-import controladorUsuario.ControladorInicioSesion;
-import controladorUsuario.ControladorRegistro;
+import controlador.controladorUsuario.ControladorInicioSesion;
+import controlador.controladorUsuario.ControladorRegistro;
 import modelo.dao.UsuarioDAO;
 import vista.principal.VentanaPrincipal;
 import vista.usuarios.VentanaInicioSesion;
