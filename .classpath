@@ -6,5 +6,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/wal_s/OneDrive/Universidad/Licenciatura_en_informatica/10AB--Seminario_de_práctica_de_informática--(35767)/Entrega_3/Sistema Administrativo Integrado/mysql-connector-j-9.3.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
