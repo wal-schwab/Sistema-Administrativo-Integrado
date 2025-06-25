@@ -8,18 +8,22 @@ import javax.swing.JPanel;
 
 public class PanelConFondoEA extends JPanel {
 	
-	ImageIcon imagenFondo;
-	JLabel fondo;
+	private ImageIcon imagenFondo;
+	private JLabel fondo;
 	
 	public PanelConFondoEA() {
-		
 		imagenFondo = new ImageIcon("resources/images/logoFondo.png");
 		fondo = new JLabel(imagenFondo);
-		fondo.setBounds(500, 40, 600, 600);
+		fondo.setBounds(500, 120, 550, 420);
 		add(fondo);
 		
 		setLayout(null);
 		setBackground(new Color(15,55,43));			
 				
+	}
+
+	public JLabel getFondo() {
+		return fondo;
 	}	
+	
 }

@@ -6,14 +6,14 @@ public class Usuario {
 	private String apellido;
 	private int legajo;
 	private String contrasena;
-	private int idRolUsuario;
+	private Rol rolUsuario;
 	
-	public Usuario(String nombre, String apellido, int legajo, String contrasena, int idRolUsuario) {
+	public Usuario(String nombre, String apellido, int legajo, String contrasena, Rol rolUsuario) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.legajo = legajo;
 		this.contrasena = contrasena;
-		this.idRolUsuario = idRolUsuario;
+		this.rolUsuario = rolUsuario;
 	}
 	
 	public Usuario(String nombre, String apellido, int legajo) {
@@ -54,12 +54,12 @@ public class Usuario {
 		this.contrasena = contrasena;
 	}
 	
-	public int getIdRolUsuario() {
-		return idRolUsuario;
+	public Rol getRolUsuario() {
+		return rolUsuario;
 	}
 
-	public void setIdRolUsuario(int idRolUsuario) {
-		this.idRolUsuario = idRolUsuario;
+	public void setRolUsuario(Rol rolUsuario) {
+		this.rolUsuario = rolUsuario;
 	}
 	
 }

@@ -1,7 +1,7 @@
 package controlador.principal;
 
-import controlador.controladorUsuario.ControladorInicioSesion;
-import controlador.controladorUsuario.ControladorRegistro;
+import controlador.usuario.ControladorInicioSesion;
+import controlador.usuario.ControladorRegistro;
 import modelo.dao.UsuarioDAO;
 import vista.principal.VentanaPrincipal;
 import vista.usuarios.VentanaInicioSesion;
@@ -19,8 +19,8 @@ public class ControladorPrincipal {
 			vista.dispose();
 			
 			VentanaInicioSesion ventanaInicioSesion = new VentanaInicioSesion();
-			UsuarioDAO moduloUsuario = new UsuarioDAO();
-			new ControladorInicioSesion(ventanaInicioSesion, moduloUsuario);
+			UsuarioDAO modeloUsuario = new UsuarioDAO();
+			new ControladorInicioSesion(ventanaInicioSesion, modeloUsuario);
 			ventanaInicioSesion.setVisible(true);
 		});
 		
@@ -28,8 +28,8 @@ public class ControladorPrincipal {
 			vista.dispose();
 			
 			VentanaRegistro ventanaRegistro = new VentanaRegistro();
-			UsuarioDAO moduloUsuario = new UsuarioDAO();
-			new ControladorRegistro(ventanaRegistro, moduloUsuario);
+			UsuarioDAO modeloUsuario = new UsuarioDAO();
+			new ControladorRegistro(ventanaRegistro, modeloUsuario);
 			ventanaRegistro.setVisible(true);
 		});
 		

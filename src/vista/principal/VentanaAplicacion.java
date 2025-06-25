@@ -17,7 +17,7 @@ public class VentanaAplicacion extends VentanaEstandarAplicacion{
 	public VentanaAplicacion(String nombreUsuario,String apellidoUsuario, String nombreRol) {
 		super("Inicio", nombreUsuario, apellidoUsuario, nombreRol);
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));
-		panel.add(agregarBoton("Gestión de Usuario", 80, 90, 270, 60, 16, false));											  
+		panel.add(agregarBoton("Gestión de Usuario", 80, 90, 270, 60, 16, true));											  
 		panel.add(agregarBoton("Gestión de Proveedores", 80, 155, 270, 60, 16, true));
 		panel.add(agregarBoton("Gestión de Centro de Costos", 80, 220, 270, 60, 16, true));
 		panel.add(agregarBoton("Gestión de Inversiones", 80, 285, 270, 60, 16, true));
@@ -30,7 +30,7 @@ public class VentanaAplicacion extends VentanaEstandarAplicacion{
 	public void deshabilitarGestionUsuario() {
 		for (Component c : panel.getComponents()) {
 		    if (c instanceof JButton && "Gestión de Usuario".equals(c.getName())) {
-		        c.setEnabled(true);
+		        c.setEnabled(false);
 		    }
 		}
 	}

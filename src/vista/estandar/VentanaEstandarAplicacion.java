@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 public abstract class VentanaEstandarAplicacion extends JFrame{
 	
-	protected JPanel panel;
+	protected PanelConFondoEA panel;
 	protected JButton boton;
 	protected JLabel label;
 	
@@ -35,11 +35,11 @@ public abstract class VentanaEstandarAplicacion extends JFrame{
 		add(panel);
 	}
 	
-	public void mostrarMensajeErrorBD() {
-		JOptionPane.showMessageDialog(null, "No hay conexión a \nla base de datos");
+	public void mostrarMensajeErrorBD(String detalleExcepcion) {
+		JOptionPane.showMessageDialog(null, "No hay conexión a la base de datos \n" + detalleExcepcion);
 	}
 	
-	public JPanel getPanel() {
+	public PanelConFondoEA getPanel() {
 		return panel;
 	}
 

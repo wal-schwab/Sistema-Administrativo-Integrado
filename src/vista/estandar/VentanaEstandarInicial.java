@@ -40,8 +40,8 @@ public abstract class VentanaEstandarInicial extends JFrame {
 		return panel;
 	}
 	
-	public void mostrarMensajeErrorBD() {
-		JOptionPane.showMessageDialog(null, "No hay conexión con \nla base de datos");
+	public void mostrarMensajeErrorBD(String detalleExcepcion) {
+		JOptionPane.showMessageDialog(null, "Conflicto con la base de datos \n" + detalleExcepcion);
 	}
 
 	public abstract JButton agregarBoton(String nombre, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente, boolean estaHabilitado);

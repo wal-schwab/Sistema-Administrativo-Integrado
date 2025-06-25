@@ -1,7 +1,8 @@
-package controlador.controladorUsuario;
+package controlador.usuario;
 
 import java.sql.SQLException;
 
+import controlador.estandar.ControladorGeneral;
 import controlador.principal.ControladorAplicacion;
 import controlador.principal.ControladorPrincipal;
 import modelo.dao.UsuarioDAO;
@@ -11,7 +12,7 @@ import vista.principal.VentanaAplicacion;
 import vista.principal.VentanaPrincipal;
 import vista.usuarios.VentanaInicioSesion;
 
-public class ControladorInicioSesion {
+public class ControladorInicioSesion extends ControladorGeneral {
 	
 	private VentanaInicioSesion vista;
 	private UsuarioDAO modelo;
@@ -35,18 +36,15 @@ public class ControladorInicioSesion {
 				if(usuario == null){
 					vista.mostrarMensajeErrorAutenticacion();
 					return;
-				}else if(usuario.getIdRolUsuario() == 2){
+				}else if(usuario.getRolUsuario().getIdRol() == 2){
 					vista.mostrarMensajeUsuarioSinRol();
 					return;
 				}else {
-					vista.dispose();
-					VentanaAplicacion ventanaAplicacion = new VentanaAplicacion(usuario.getNombre(),usuario.getApellido(),modelo.obtenerNombreRol(usuario));
-					new ControladorAplicacion(ventanaAplicacion, usuario);
-					ventanaAplicacion.setVisible(true);
+					abrirVentanaAplicacion(vista, usuario);
 				}
 				
 			}catch (SQLException ex) {
-				vista.mostrarMensajeErrorBD();
+				vista.mostrarMensajeErrorBD(ex.getLocalizedMessage());
 			}
 		});
 		

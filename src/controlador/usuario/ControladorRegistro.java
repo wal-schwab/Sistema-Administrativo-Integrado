@@ -1,4 +1,4 @@
-package controlador.controladorUsuario;
+package controlador.usuario;
 
 import java.awt.Component;
 import java.sql.SQLException;
@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import controlador.principal.ControladorPrincipal;
 import modelo.dao.UsuarioDAO;
 import modelo.dao.Validador;
+import modelo.entidades.Rol;
 import modelo.entidades.Usuario;
 import vista.principal.VentanaPrincipal;
 import vista.usuarios.VentanaRegistro;
@@ -51,7 +52,7 @@ public class ControladorRegistro {
 			        		vista.mostrarMensajeLegajoConUsuario();
 			        	}
 		        	}catch(SQLException ex) {
-		        		vista.mostrarMensajeErrorBD();
+		        		vista.mostrarMensajeErrorBD(ex.getLocalizedMessage());
 		        	}
 		        });
 		    }
@@ -70,7 +71,8 @@ public class ControladorRegistro {
 			        		String nombre = usuarioIncompleto.getNombre();
 			        		String apellido = usuarioIncompleto.getApellido();
 			        		int legajo = usuarioIncompleto.getLegajo();
-			        		Usuario usarioCreado = new Usuario(nombre, apellido, legajo, contrasena, 2);
+			        		Rol usuarioSinRol = modelo.obtenerRolUsuario(2);
+			        		Usuario usarioCreado = new Usuario(nombre, apellido, legajo, contrasena, usuarioSinRol);
 			        		if(modelo.crearUsuario(usarioCreado)) {
 			        			vista.mostrarMensajeUsuarioCreado();
 			        		};
@@ -84,7 +86,7 @@ public class ControladorRegistro {
 			        		vista.mostrarMensajeFormatoContrasenaIncorrecta();
 			        	}
 		        	}catch(SQLException ex){
-		        		vista.mostrarMensajeErrorBD();
+		        		vista.mostrarMensajeErrorBD(ex.getLocalizedMessage());
 		        	}
 		        });
 		    }
