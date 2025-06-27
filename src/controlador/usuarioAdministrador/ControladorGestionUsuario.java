@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 import controlador.estandar.ControladorGeneral;
 import modelo.dao.UsuarioAdministradorDAO;

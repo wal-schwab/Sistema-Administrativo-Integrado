@@ -1,29 +1,38 @@
 package modelo.entidades;
 
 public class CentroDeCosto {
+    private int idCentro;
+    private String nombreCentro;
+    private String direccion;
 
-	private int numeroID;
-	private String sector;
-	
-	public CentroDeCosto(int numeroID, String sector) {
-		this.numeroID = numeroID;
-		this.sector = sector;
-	}
+    public CentroDeCosto(int idCentro, String nombreCentro, String direccion) {
+        this.idCentro = idCentro;
+        this.nombreCentro = nombreCentro;
+        this.direccion = direccion;
+    }
 
-	public int getNumeroID() {
-		return numeroID;
-	}
+    // Getters y setters
+    public int getIdCentro() {
+        return idCentro;
+    }
 
-	public void setNumeroID(int numeroID) {
-		this.numeroID = numeroID;
-	}
+    public void setIdCentro(int idCentro) {
+        this.idCentro = idCentro;
+    }
 
-	public String getSector() {
-		return sector;
-	}
+    public String getNombreCentro() {
+        return nombreCentro;
+    }
 
-	public void setSector(String sector) {
-		this.sector = sector;
-	}
-	
+    public void setNombreCentro(String nombreCentro) {
+        this.nombreCentro = nombreCentro;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 }

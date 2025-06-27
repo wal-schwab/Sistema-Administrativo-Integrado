@@ -7,23 +7,19 @@ import javax.swing.JButton;
 import controlador.centroDeCosto.ControladorGestionCentroCosto;
 import controlador.estandar.ControladorGeneral;
 import controlador.gasto.ControladorGestionGasto;
-import controlador.inversion.ControladorGestionInversion;
 import controlador.presupuesto.ControladorGestionPresupuesto;
 import controlador.proveedor.ControladorGestionProveedor;
 import controlador.usuarioAdministrador.ControladorGestionUsuario;
 import modelo.dao.CentroDeCostoDAO;
 import modelo.dao.GastoDAO;
-import modelo.dao.InversionDAO;
 import modelo.dao.PresupuestoDAO;
 import modelo.dao.ProveedorDAO;
 import modelo.dao.UsuarioAdministradorDAO;
 import modelo.entidades.Usuario;
 import vista.centroDeCosto.VentanaGestionCentroDeCosto;
 import vista.gasto.VentanaGestionGasto;
-import vista.inversion.VentanaGestionInversion;
 import vista.presupuesto.VentanaGestionPresupuesto;
 import vista.principal.VentanaAplicacion;
-import vista.principal.VentanaPrincipal;
 import vista.proveedor.VentanaGestionProveedor;
 import vista.usuarioAministrador.VentanaGestionUsuario;
 
@@ -74,16 +70,6 @@ public class ControladorAplicacion extends ControladorGeneral {
 		        	VentanaGestionCentroDeCosto ventanaCentroCosto = new VentanaGestionCentroDeCosto(c.getName(), nombreUsuario, apellidoUsuario, nombreRol);
 		        	new ControladorGestionCentroCosto(ventanaCentroCosto, modeloCentroCosto, usuario);
 		        	ventanaCentroCosto.setVisible(true);
-		        });
-		    }
-		    if (c instanceof JButton && "Gestión de Inversiones".equals(c.getName())) {
-		        boton = (JButton) c;
-		        boton.addActionListener(e -> {
-		        	vista.dispose();
-		        	InversionDAO modeloInversion = new InversionDAO();
-		        	VentanaGestionInversion ventanaGestionInversion = new VentanaGestionInversion(c.getName(), nombreUsuario, apellidoUsuario, nombreRol);
-		        	new ControladorGestionInversion(ventanaGestionInversion, modeloInversion, usuario);
-		        	ventanaGestionInversion.setVisible(true);
 		        });
 		    }
 		    if (c instanceof JButton && "Gestión de Gastos".equals(c.getName())) {

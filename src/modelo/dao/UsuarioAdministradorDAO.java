@@ -9,8 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import modelo.conexion.ConexionBD;
 import modelo.entidades.Rol;
 import modelo.entidades.Usuario;

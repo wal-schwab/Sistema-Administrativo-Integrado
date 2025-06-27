@@ -20,9 +20,8 @@ public class VentanaAplicacion extends VentanaEstandarAplicacion{
 		panel.add(agregarBoton("Gestión de Usuario", 80, 90, 270, 60, 16, true));											  
 		panel.add(agregarBoton("Gestión de Proveedores", 80, 155, 270, 60, 16, true));
 		panel.add(agregarBoton("Gestión de Centro de Costos", 80, 220, 270, 60, 16, true));
-		panel.add(agregarBoton("Gestión de Inversiones", 80, 285, 270, 60, 16, true));
-		panel.add(agregarBoton("Gestión de Gastos", 80, 350, 270, 60, 16, true));
-		panel.add(agregarBoton("Gestión de Presupuestos", 80, 415, 270, 60, 16, true));
+		panel.add(agregarBoton("Gestión de Gastos", 80, 285, 270, 60, 16, true));
+		panel.add(agregarBoton("Gestión de Presupuestos", 80, 350, 270, 60, 16, true));
 		panel.add(agregarBoton("Cerrar Sesión", 80, 520, 270, 60, 16, true));
 		panel.add(agregarBoton("Salir", 80, 585, 270, 60, 16, true));	
 	}

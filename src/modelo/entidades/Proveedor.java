@@ -2,38 +2,59 @@ package modelo.entidades;
 
 public class Proveedor {
 	
-	private int numeroID;
-	private String nombre;
-	private String detalle;
-	
-	public Proveedor(int numeroIdentificacion, String nombre, String actividaPrincipal) {
-		this.numeroID = numeroIdentificacion;
-		this.nombre = nombre;
-		this.detalle = actividaPrincipal;
-	}
+    private int idProveedor;
+    private String nombreProveedor;
+    private String nombreContacto;
+    private String email;
+    private String actividadPrincipal;
 
-	public int getNumeroIdentificacion() {
-		return numeroID;
-	}
 
-	public void setNumeroIdentificacion(int numeroID) {
-		this.numeroID = numeroID;
-	}
+    public Proveedor(int idProveedor, String nombreProveedor, String nombreContacto, String email, String actividadPrincipal) {
+        this.idProveedor = idProveedor;
+        this.nombreProveedor = nombreProveedor;
+        this.nombreContacto = nombreContacto;
+        this.email = email;
+        this.actividadPrincipal = actividadPrincipal;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    // Getters y setters
+    public int getIdProveedor() {
+        return idProveedor;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
+    }
 
-	public String getDetalle() {
-		return detalle;
-	}
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
 
-	public void setDetalle(String detalle) {
-		this.detalle = detalle;
-	}
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
 
+    public String getNombreContacto() {
+        return nombreContacto;
+    }
+
+    public void setNombreContacto(String nombreContacto) {
+        this.nombreContacto = nombreContacto;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getActividadPrincipal() {
+        return actividadPrincipal;
+    }
+
+    public void setActividadPrincipal(String actividadPrincipal) {
+        this.actividadPrincipal = actividadPrincipal;
+    }
 }

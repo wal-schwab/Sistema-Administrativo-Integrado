@@ -1,56 +1,48 @@
 package modelo.entidades;
 
-import java.util.ArrayList;
-
 public class Presupuesto {
-	
-	private int numeroID;
-	private int anoPresupuesto;
-	private ArrayList<Gasto> gastosRealizados;
-	private ArrayList<GastoPresupuestado> gastosPresupuestados;
-	
-	public Presupuesto(int numeroID, int anoPresupuesto) {
-		this.numeroID = numeroID;
-		this.anoPresupuesto = anoPresupuesto;
-		gastosRealizados = new ArrayList<Gasto>();
-		gastosPresupuestados = new ArrayList<GastoPresupuestado>();
-	}
+    private int idPresupuesto;
+    private int ano;
+    private String estado; // CONFIRMADO / EN REVISIÓN
+    private int montoTotal;
 
-	public int getNumeroID() {
-		return numeroID;
-	}
+    public Presupuesto(int idPresupuesto, int ano, String estado, int montoTotal) {
+        this.idPresupuesto = idPresupuesto;
+        this.ano = ano;
+        this.estado = estado;
+        this.montoTotal = montoTotal;
+    }
 
-	public void setNumeroID(int numeroID) {
-		this.numeroID = numeroID;
-	}
+    // Getters y setters
+    public int getIdPresupuesto() {
+        return idPresupuesto;
+    }
 
-	public int getAnoPresupuesto() {
-		return anoPresupuesto;
-	}
+    public void setIdPresupuesto(int idPresupuesto) {
+        this.idPresupuesto = idPresupuesto;
+    }
 
-	public void setAnoPresupuesto(int anoPresupuesto) {
-		this.anoPresupuesto = anoPresupuesto;
-	}
+    public int getAno() {
+        return ano;
+    }
 
-	public ArrayList<Gasto> getGastosRealizados() {
-		return gastosRealizados;
-	}
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
 
-	public void agregarGastoRealizado(Gasto gastoRealizado) {
-		gastosRealizados.add(gastoRealizado);
-	}
+    public String getEstado() {
+        return estado;
+    }
 
-	public ArrayList<GastoPresupuestado> getGastosPresupuestados() {
-		return gastosPresupuestados;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-	public void agregarGastoPresupuestado(GastoPresupuestado gastoPresupuestado) {
-		gastosPresupuestados.add(gastoPresupuestado);
-	}
-	
-	
-	
-	
-	
+    public int getMontoTotal() {
+        return montoTotal;
+    }
 
+    public void setMontoTotal(int montoTotal) {
+        this.montoTotal = montoTotal;
+    }
 }
