@@ -1,16 +1,19 @@
 package modelo.entidades;
 
+import java.util.List;
+
 public class Presupuesto {
     private int idPresupuesto;
-    private int ano;
-    private String estado; // CONFIRMADO / EN REVISIÓN
-    private int montoTotal;
+    private int periodo;	//AÑO
+    private String estado; // CONFIRMADO - EN REVISIÓN
+    private List<GastoPresupuestado> gastosPresupuestados;
+    private List<Gasto> gastos;
+ 
 
-    public Presupuesto(int idPresupuesto, int ano, String estado, int montoTotal) {
+    public Presupuesto(int idPresupuesto, int periodo, String estado, int montoTotal) {
         this.idPresupuesto = idPresupuesto;
-        this.ano = ano;
+        this.periodo = periodo; 
         this.estado = estado;
-        this.montoTotal = montoTotal;
     }
 
     // Getters y setters
@@ -22,12 +25,12 @@ public class Presupuesto {
         this.idPresupuesto = idPresupuesto;
     }
 
-    public int getAno() {
-        return ano;
+    public int getPeriodo() {
+        return periodo;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
     }
 
     public String getEstado() {
@@ -38,11 +41,19 @@ public class Presupuesto {
         this.estado = estado;
     }
 
-    public int getMontoTotal() {
-        return montoTotal;
-    }
+	public List<GastoPresupuestado> getGastoPresupuestado() {
+		return gastosPresupuestados;
+	}
 
-    public void setMontoTotal(int montoTotal) {
-        this.montoTotal = montoTotal;
-    }
+	public void setGastoPresupuestado(List<GastoPresupuestado> gastosPresupuestados) {
+		this.gastosPresupuestados = gastosPresupuestados;
+	}
+
+	public List<Gasto> getGastos() {
+		return gastos;
+	}
+
+	public void setGastos(List<Gasto> gastos) {
+		this.gastos = gastos;
+	}
 }

@@ -2,19 +2,16 @@ package modelo.entidades;
 
 public class GastoPresupuestado {
     private int idGastoPresupuestado;
+    private String detalle;
     private Proveedor proveedor; // Puede ser null si está "A DEFINIR"
-    private Presupuesto presupuesto;
     private CentroDeCosto centroDeCosto;
     private Gasto gastoAsociado; // Puede ser null si aún no se generó
     private double importe;
 
-    public GastoPresupuestado() {}
-
-    public GastoPresupuestado(int idGastoPresupuestado, Proveedor proveedor, Presupuesto presupuesto,
+    public GastoPresupuestado(int idGastoPresupuestado, Proveedor proveedor, 
                                CentroDeCosto centroDeCosto, Gasto gastoAsociado, double importe) {
         this.idGastoPresupuestado = idGastoPresupuestado;
         this.proveedor = proveedor;
-        this.presupuesto = presupuesto;
         this.centroDeCosto = centroDeCosto;
         this.gastoAsociado = gastoAsociado;
         this.importe = importe;
@@ -35,14 +32,6 @@ public class GastoPresupuestado {
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
-    }
-
-    public Presupuesto getPresupuesto() {
-        return presupuesto;
-    }
-
-    public void setPresupuesto(Presupuesto presupuesto) {
-        this.presupuesto = presupuesto;
     }
 
     public CentroDeCosto getCentroDeCosto() {
@@ -68,4 +57,13 @@ public class GastoPresupuestado {
     public void setImporte(double importe) {
         this.importe = importe;
     }
+
+	public String getDetalle() {
+		return detalle;
+	}
+
+	public void setDetalle(String detalle) {
+		this.detalle = detalle;
+	}
+    
 }

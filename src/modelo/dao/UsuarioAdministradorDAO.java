@@ -96,6 +96,31 @@ public class UsuarioAdministradorDAO {
 		conexion.close();
 		return cambioExitoso;
 	}
+	
+	public boolean eliminarUsuario(int legajo) throws SQLException{
+		boolean cambioExitoso = false;
+		conexion = ConexionBD.obtenerConexion();
+		miPrepared = conexion.prepareStatement("DELETE FROM usuarios WHERE legajo=?");
+		miPrepared.setInt(1, legajo);
+		int filasAfectadas = miPrepared.executeUpdate();
+		if(filasAfectadas > 0) cambioExitoso = true;
+		conexion.close();
+		return cambioExitoso;
+	}
+	
+	public boolean modificarUsuario(String nombre, String apellido, String contraseña, int legajo) throws SQLException {
+		boolean cambioExitoso = false;
+		conexion = ConexionBD.obtenerConexion();
+		miPrepared = conexion.prepareStatement("UPDATE usuarios SET nombre=?, apellido=?, contrasena=? WHERE legajo=?");
+		miPrepared.setString(1, nombre);
+		miPrepared.setString(2, apellido);
+		miPrepared.setString(3, contraseña);
+		miPrepared.setInt(4, legajo);
+		int filasAfectadas = miPrepared.executeUpdate();
+		if(filasAfectadas > 0) cambioExitoso = true;
+		conexion.close();
+		return cambioExitoso;
+	}
 }
 
 

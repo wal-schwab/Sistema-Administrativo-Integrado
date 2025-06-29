@@ -89,7 +89,7 @@ public class ControladorAplicacion extends ControladorGeneral {
 		        	PresupuestoDAO modeloPresupuesto = new PresupuestoDAO();
 		        	VentanaGestionPresupuesto ventanaGestionPresupuesto = new VentanaGestionPresupuesto(c.getName(), nombreUsuario, apellidoUsuario, nombreRol);
 		        	new ControladorGestionPresupuesto(ventanaGestionPresupuesto, modeloPresupuesto, usuario);
-		        	ventanaGestionPresupuesto.setVisible(false);
+		        	ventanaGestionPresupuesto.setVisible(true);
 		        });
 		    }
 		    if (c instanceof JButton && "Cerrar Sesión".equals(c.getName())) {

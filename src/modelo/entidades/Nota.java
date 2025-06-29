@@ -3,13 +3,11 @@ package modelo.entidades;
 public class Nota {
 	
     private int idNota;
-    private Gasto gasto;
     private String tipoNota; // DÉBITO o CRÉDITO
     private double importe;
 
     public Nota(int idNota, Gasto gasto, String tipoNota, double importe) {
         this.idNota = idNota;
-        this.gasto = gasto;
         this.tipoNota = tipoNota;
         this.importe = importe;
     }
@@ -21,14 +19,6 @@ public class Nota {
 
     public void setIdNota(int idNota) {
         this.idNota = idNota;
-    }
-
-    public Gasto getGasto() {
-        return gasto;
-    }
-
-    public void setGasto(Gasto gasto) {
-        this.gasto = gasto;
     }
 
     public String getTipoNota() {

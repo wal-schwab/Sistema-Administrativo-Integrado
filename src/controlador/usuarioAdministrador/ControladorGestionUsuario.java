@@ -83,6 +83,33 @@ public class ControladorGestionUsuario extends ControladorGeneral {
 					}	
 				});
 			}
+			if (c instanceof JButton && "Eliminar Usuario".equals(c.getName())) {
+		        boton = (JButton) c;
+		        boton.addActionListener(e -> {
+		        	try {
+		        		List <Usuario> usuarios = modelo.obtenerTodosLosUsuarios();	
+		        		String legajos[] = new String[usuarios.size()];
+		        		int i = 0;
+		        		for (Usuario u : usuarios) {
+		        			legajos[i] = String.valueOf(u.getLegajo());
+							i++;
+						}
+		        		String legajo = vista.mostrarCuadroEliminacionUsuario(legajos);
+		        		if(legajo.length() > 0) {
+		        			int numLegajo = Integer.parseInt(legajo);
+		        			boolean esExitoso = modelo.eliminarUsuario(numLegajo);
+		        			if(esExitoso) {
+		        				vista.mostrarEliminacionExitoso(legajo);
+		        			}	
+		        		}
+					} catch (Exception ex) {
+						vista.mostrarMensajeErrorBD(ex.getLocalizedMessage());
+					}
+		        });
+			}  
+			if (c instanceof JButton && "Modificar Usuario".equals(c.getName())) {
+		       
+			}    
 		    if (c instanceof JButton && "Volver".equals(c.getName())) {
 		        boton = (JButton) c;
 		        boton.addActionListener(e -> {

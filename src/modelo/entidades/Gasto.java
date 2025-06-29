@@ -2,6 +2,7 @@ package modelo.entidades;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Gasto {
 	
@@ -13,20 +14,19 @@ public class Gasto {
     private String tipoGasto;	 // RUN: Bien o Servicio para la labor diaria / GROWTH: Bien o servicio para el crecimiento de la empresa 
     							// TRANSFORM: Bien o servicio para gestionar la implementación de un nuevo modelo de negocio.
     private Proveedor proveedor;
-    private Item item;
+    private List <Item> items;
     private CentroDeCosto centroDeCosto;
     private double importe;
+    private List <Nota> notas;
 
-    public Gasto(int idGasto, LocalDateTime fechaEmision, LocalDate fechaRecepcion, String estado, int nroFactura,
-                 String tipoGasto, Proveedor proveedor, Item item, CentroDeCosto centroDeCosto, double importe) {
+    public Gasto(int idGasto, LocalDateTime fechaEmision, String estado,
+                 String tipoGasto, Proveedor proveedor, List <Item> items, CentroDeCosto centroDeCosto, double importe) {
         this.idGasto = idGasto;
         this.fechaEmision = fechaEmision;
-        this.fechaRecepcion = fechaRecepcion;
         this.estado = estado;
-        this.nroFactura = nroFactura;
         this.tipoGasto = tipoGasto;
         this.proveedor = proveedor;
-        this.item = item;
+        this.items = items;
         this.centroDeCosto = centroDeCosto;
         this.importe = importe;
     }
@@ -88,12 +88,12 @@ public class Gasto {
         this.proveedor = proveedor;
     }
 
-    public Item getItem() {
-        return item;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     public CentroDeCosto getCentroDeCosto() {
@@ -111,4 +111,13 @@ public class Gasto {
     public void setImporte(double importe) {
         this.importe = importe;
     }
+
+	public List<Nota> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(List<Nota> notas) {
+		this.notas = notas;
+	}
+    
 }
