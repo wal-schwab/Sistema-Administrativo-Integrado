@@ -131,7 +131,7 @@ public class ControladorGestionCentroCosto extends ControladorGeneral {
 							}
 						}
 					} catch (Exception ex) {
-						vista.mostrarMensajeErrorBD("Error al modificar proveedor: " + ex.getMessage());
+						vista.mostrarMensajeErrorBD("Error al modificar centro de costo: " + ex.getMessage());
 					}
 				});
 			}

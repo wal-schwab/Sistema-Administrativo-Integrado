@@ -7,7 +7,6 @@ import javax.swing.JButton;
 
 import controlador.principal.ControladorPrincipal;
 import modelo.dao.UsuarioDAO;
-import modelo.dao.Validador;
 import modelo.entidades.Rol;
 import modelo.entidades.Usuario;
 import vista.principal.VentanaPrincipal;

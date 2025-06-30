@@ -1,4 +1,4 @@
-package modelo.dao;
+package controlador.usuario;
 
 public class Validador {
 

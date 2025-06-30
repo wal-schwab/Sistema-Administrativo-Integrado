@@ -6,7 +6,6 @@ import controlador.estandar.ControladorGeneral;
 import controlador.principal.ControladorAplicacion;
 import controlador.principal.ControladorPrincipal;
 import modelo.dao.UsuarioDAO;
-import modelo.dao.Validador;
 import modelo.entidades.Usuario;
 import vista.principal.VentanaAplicacion;
 import vista.principal.VentanaPrincipal;
