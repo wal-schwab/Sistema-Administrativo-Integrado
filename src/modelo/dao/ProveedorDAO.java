@@ -38,6 +38,49 @@ public class ProveedorDAO {
 		conexion.close();
 		return proveedores;
 	}
+	
+	public boolean crearProveedor(Proveedor proveedor) throws SQLException {
+		boolean cambioExitoso = false;
+		conexion = ConexionBD.obtenerConexion();
+		miPrepared = conexion.prepareStatement("INSERT INTO proveedores (idProveedor, nombreProveedor, nombreContacto, email, actividadPrincipal) " +
+                "VALUES (?, ?, ?, ?, ?)");
+		miPrepared.setInt(1, proveedor.getIdProveedor());
+		miPrepared.setString(2, proveedor.getNombreProveedor());
+		miPrepared.setString(3, proveedor.getNombreContacto());
+		miPrepared.setString(4, proveedor.getEmail());
+		miPrepared.setString(5, proveedor.getActividadPrincipal());
+		int filasAfectadas = miPrepared.executeUpdate();
+		if(filasAfectadas > 0) cambioExitoso = true;
+		conexion.close();
+		return cambioExitoso;
+	}
+	
+	public boolean modificarProveedor(Proveedor proveedor) throws SQLException{
+		boolean cambioExitoso = false;
+		conexion = ConexionBD.obtenerConexion();
+		miPrepared = conexion.prepareStatement("UPDATE proveedores SET nombreProveedor = ?, nombreContacto = ?, "
+														+ "email = ?, actividadPrincipal = ? WHERE idProveedor = ?");
+		miPrepared.setString(1, proveedor.getNombreProveedor());
+	    miPrepared.setString(2, proveedor.getNombreContacto());
+	    miPrepared.setString(3, proveedor.getEmail());
+	    miPrepared.setString(4, proveedor.getActividadPrincipal());
+	    miPrepared.setInt(5, proveedor.getIdProveedor());			
+		int filasAfectadas = miPrepared.executeUpdate();
+		if(filasAfectadas > 0) cambioExitoso = true;
+		conexion.close();
+		return cambioExitoso;
+	}
+	
+	public boolean eliminarProveedor(int idProveedor) throws SQLException{
+		boolean cambioExitoso = false;
+		conexion = ConexionBD.obtenerConexion();
+		miPrepared = conexion.prepareStatement("DELETE FROM proveedores WHERE idProveedor=?");
+		miPrepared.setInt(1, idProveedor);
+		int filasAfectadas = miPrepared.executeUpdate();
+		if(filasAfectadas > 0) cambioExitoso = true;
+		conexion.close();
+		return cambioExitoso;
+	}
 }
 
 

@@ -2,11 +2,14 @@ package vista.proveedor;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -36,7 +39,73 @@ public class VentanaGestionProveedor extends VentanaEstandarAplicacion{
 	public void mostrarProveedoresEnTabla(String[] nombresColumnas, List <Object[]> filas) {	
 		JScrollPane scrollTabla = mostrarEnTabla(nombresColumnas, filas, 450, 130, 650, 380);
 		panel.add(scrollTabla);
+		activarOpciones();
 	}	
+	
+	public String mostrarCuadroEliminacionProveedor(String[] idProveedores) {
+		JComboBox<String> opciones = new JComboBox<String>(idProveedores);
+		String seleccion = "";
+		int resultado = JOptionPane.showConfirmDialog(
+				this,
+				opciones,
+				"Selecciona un proveedor a eliminar",
+				JOptionPane.OK_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null
+				);
+		 if (resultado == JOptionPane.OK_OPTION) {
+	            seleccion = (String) opciones.getSelectedItem();
+	        } else {
+	            JOptionPane.showMessageDialog(null, "No seleccionaste ninguna opción");
+	        }
+		return seleccion;
+	}
+	
+	public void mostrarEliminacionExitoso(String idProveedor) {
+		JOptionPane.showMessageDialog(null, "¡Se ha eliminado el proveedor " + idProveedor + "!");
+	}
+	
+	public void mostrarModificacionExitoso(int idProveedor) {
+		JOptionPane.showMessageDialog(null, "¡Se ha modificado el proveedor " + idProveedor + "!");
+	}
+	
+	public List<String> mostrarVentanasCrearProveedor(){
+		List<String> datos = new ArrayList<String>();
+		  String id = JOptionPane.showInputDialog("ID del proveedor (8 dígitos):");
+		  datos.add(id);
+          String nombre = JOptionPane.showInputDialog("Nombre del proveedor:");
+          datos.add(nombre);
+          String contacto = JOptionPane.showInputDialog("Nombre del contacto:");
+          datos.add(contacto);
+          String email = JOptionPane.showInputDialog("Correo electrónico:");
+          datos.add(email);
+          String actividad = JOptionPane.showInputDialog("Actividad principal:");
+          datos.add(actividad);
+		return datos;
+	}
+	
+	public int mostrarListaDeProveedores(String[] opciones) {
+		JComboBox<String> combo = new JComboBox<>(opciones);
+		int indice = -1;
+		int seleccion = JOptionPane.showConfirmDialog(this, combo, "Seleccioná un proveedor", JOptionPane.OK_CANCEL_OPTION);
+		if (seleccion == JOptionPane.OK_OPTION) {
+            indice = combo.getSelectedIndex();
+		}
+		return indice;
+	}
+	
+	public List<String> mostrarVentanasModificarProveedor() {
+		List<String> datos = new ArrayList<String>();
+        String nombre = JOptionPane.showInputDialog("Nuevo nombre:");
+        datos.add(nombre);
+        String contacto = JOptionPane.showInputDialog("Nuevo contacto:");
+        datos.add(contacto);
+        String email = JOptionPane.showInputDialog("Nuevo correo electrónico:");
+        datos.add(email);
+        String actividad = JOptionPane.showInputDialog("Nueva actividad principal:");
+        datos.add(actividad);
+		return datos;
+	}
 	
 	@Override
 	public JButton agregarBoton(String nombre, int ubicacionX, int ubicacionY, int ancho, int alto, int tamanoFuente, boolean visible) {
