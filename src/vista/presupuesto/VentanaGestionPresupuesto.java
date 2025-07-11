@@ -12,8 +12,8 @@ import vista.estandar.VentanaEstandarAplicacion;
 
 public class VentanaGestionPresupuesto extends VentanaEstandarAplicacion{
 	
-	public VentanaGestionPresupuesto(String nombreVentana,String nombreUsuario,String apellidoUsuario, String nombreRol) {
-		super(nombreVentana, nombreUsuario, apellidoUsuario, nombreRol);
+	public VentanaGestionPresupuesto(String nombreUsuario,String apellidoUsuario, String nombreRol) {
+		super("Gestión de Presupuestos", nombreUsuario, apellidoUsuario, nombreRol);
 	
 		panel.add(agregarBoton("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));

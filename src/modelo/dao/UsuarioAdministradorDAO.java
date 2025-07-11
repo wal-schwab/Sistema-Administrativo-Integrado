@@ -3,25 +3,25 @@ package modelo.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.conexion.ConexionBD;
 import modelo.entidades.Rol;
 import modelo.entidades.Usuario;
+import modelo.util.ConexionBD;
 
 
-public class UsuarioAdministradorDAO {
+public class UsuarioAdministradorDAO implements DAOGeneral<Usuario, Integer> {
 
 	Connection conexion;
 	ResultSet miResulSet;
 	Statement miStatement;
 	PreparedStatement miPrepared;
-
-	public List<Usuario> obtenerTodosLosUsuarios() throws SQLException{
+	
+	@Override
+	public List<Usuario> listarTodos() throws SQLException{
 		conexion = ConexionBD.obtenerConexion();
 		List<Usuario> usuarios = new ArrayList<>();
 		String consulta = "SELECT * FROM usuarios";
@@ -44,22 +44,6 @@ public class UsuarioAdministradorDAO {
 		}
 		conexion.close();
 		return usuarios;
-	}
-	
-	public String[] ObtenerTituloColumnaTablaUsuario() throws SQLException{
-		conexion = ConexionBD.obtenerConexion();
-		miStatement = conexion.createStatement();
-		miResulSet = miStatement.executeQuery("SELECT * FROM Usuarios");
-		ResultSetMetaData metaData = miResulSet.getMetaData();
-		int cantidadColumnas = metaData.getColumnCount();
-		String[] nombreColumnas = new String[cantidadColumnas];
-		int j = 0;
-		for (int i = 1; i <= cantidadColumnas; i++) {
-			nombreColumnas[j] = metaData.getColumnName(i).toUpperCase();
-			j++;
-		}
-		conexion.close();
-		return nombreColumnas;
 	}
 	
 	public List<Rol> obtenerTodosLosRoles() throws SQLException{
@@ -97,29 +81,44 @@ public class UsuarioAdministradorDAO {
 		return cambioExitoso;
 	}
 	
-	public boolean eliminarUsuario(int legajo) throws SQLException{
+	@Override
+	public boolean eliminar(Integer legajo) throws SQLException{
 		boolean cambioExitoso = false;
+		int numID = legajo.intValue();
 		conexion = ConexionBD.obtenerConexion();
 		miPrepared = conexion.prepareStatement("DELETE FROM usuarios WHERE legajo=?");
-		miPrepared.setInt(1, legajo);
+		miPrepared.setInt(1, numID);
 		int filasAfectadas = miPrepared.executeUpdate();
 		if(filasAfectadas > 0) cambioExitoso = true;
 		conexion.close();
 		return cambioExitoso;
 	}
 	
-	public boolean modificarUsuario(String nombre, String apellido, String contraseña, int legajo) throws SQLException {
+	@Override
+	public boolean modificar(Usuario usuario) throws SQLException {
 		boolean cambioExitoso = false;
 		conexion = ConexionBD.obtenerConexion();
 		miPrepared = conexion.prepareStatement("UPDATE usuarios SET nombre=?, apellido=?, contrasena=? WHERE legajo=?");
-		miPrepared.setString(1, nombre);
-		miPrepared.setString(2, apellido);
-		miPrepared.setString(3, contraseña);
-		miPrepared.setInt(4, legajo);
+		miPrepared.setString(1, usuario.getNombre());
+		miPrepared.setString(2, usuario.getApellido());
+		miPrepared.setString(3, usuario.getContrasena());
+		miPrepared.setInt(4, usuario.getLegajo());
 		int filasAfectadas = miPrepared.executeUpdate();
 		if(filasAfectadas > 0) cambioExitoso = true;
 		conexion.close();
 		return cambioExitoso;
+	}
+
+	@Override
+	public boolean crear(Usuario entidad) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Usuario buscar(Integer id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

@@ -1,4 +1,4 @@
-package controlador.usuario;
+package modelo.util;
 
 public class Validador {
 

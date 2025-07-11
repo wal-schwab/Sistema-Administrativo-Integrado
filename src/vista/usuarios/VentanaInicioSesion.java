@@ -6,7 +6,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -14,8 +13,6 @@ import vista.estandar.VentanaEstandarInicial;
 
 public class VentanaInicioSesion extends VentanaEstandarInicial{
 	
-	private JButton botonVolver;
-	private JButton botonIngresar;
 	private JPasswordField textoContrasena;
 	private JTextField textoLegajo;
 	
@@ -30,20 +27,11 @@ public class VentanaInicioSesion extends VentanaEstandarInicial{
 		panel.add(agregarLabel("Contraseña", 125, 260,100,30,15));
 		textoContrasena = agregarPasswordField("textoContrasena", 45, 300,255,30,15,true);	
 		panel.add(textoContrasena);
-		botonIngresar = agregarBoton("Ingresar",75,385,200,40,16,true);
-		panel.add(botonIngresar);
-		botonVolver = agregarBoton("Volver",75,430,200,40,16,true);
-		panel.add(botonVolver);
+		panel.add(agregarBoton("Ingresar",75,385,200,40,16,true));
+		panel.add(agregarBoton("Volver",75,430,200,40,16,true));
+		
 	}
 	
-	public JButton getBotonVolver() {
-		return botonVolver;
-	}
-
-	public JButton getBotonIngresar() {
-		return botonIngresar;
-	}
-
 	public JPasswordField getTextoContrasena() {
 		return textoContrasena;
 	}
@@ -67,6 +55,7 @@ public class VentanaInicioSesion extends VentanaEstandarInicial{
 	@Override
 	public JButton agregarBoton(String nombre, int ubicacionX, int ubicacionY,int ancho, int alto, int tamanoFuente, boolean estaHabilitado) {
 		boton = new JButton(nombre);
+		boton.setName(nombre);
 		boton.setBounds(ubicacionX,ubicacionY,ancho,alto);
 		boton.setBackground(new Color(220, 220, 220));
 		boton.setFont(new Font("Arial", 1, tamanoFuente));

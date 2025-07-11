@@ -19,8 +19,8 @@ import vista.estandar.VentanaEstandarAplicacion;
 
 public class VentanaGestionCentroDeCosto extends VentanaEstandarAplicacion{
 
-	public VentanaGestionCentroDeCosto(String nombreVentana,String nombreUsuario,String apellidoUsuario, String nombreRol) {
-		super(nombreVentana, nombreUsuario, apellidoUsuario, nombreRol);
+	public VentanaGestionCentroDeCosto(String nombreUsuario,String apellidoUsuario, String nombreRol) {
+		super("Gestión de Centros de Costos", nombreUsuario, apellidoUsuario, nombreRol);
 
 		panel.add(agregarBoton("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));
@@ -32,15 +32,11 @@ public class VentanaGestionCentroDeCosto extends VentanaEstandarAplicacion{
 		panel.add(agregarBoton("Cerrar Sesión", 80, 520, 270, 60, 16, true));
 		panel.add(agregarBoton("Salir", 80, 585, 270, 60, 16, true));	
 	}
-	
-	public void usuarioLecturaEscritura() {
-		activarOpciones();
-	}
-	
+		
 	public void mostrarCentrosDeCostosEnTabla(String[] nombresColumnas, List <Object[]> filas) {	
 		JScrollPane scrollTabla = mostrarEnTabla(nombresColumnas, filas, 450, 130, 650, 380);
 		panel.add(scrollTabla);
-		activarOpciones();
+	
 	}	
 	
 	public String mostrarCuadroEliminacionCentroDeCosto(String[] idCentro) {

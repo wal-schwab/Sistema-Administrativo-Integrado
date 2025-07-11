@@ -18,8 +18,8 @@ import vista.estandar.VentanaEstandarAplicacion;
 
 public class VentanaGestionProveedor extends VentanaEstandarAplicacion{
 
-	public VentanaGestionProveedor(String nombreVentana,String nombreUsuario,String apellidoUsuario, String nombreRol) {
-		super(nombreVentana, nombreUsuario, apellidoUsuario, nombreRol);
+	public VentanaGestionProveedor(String nombreUsuario,String apellidoUsuario, String nombreRol) {
+		super("Gestión de Proveedores", nombreUsuario, apellidoUsuario, nombreRol);
 			
 		panel.add(agregarBoton("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));
@@ -39,7 +39,7 @@ public class VentanaGestionProveedor extends VentanaEstandarAplicacion{
 	public void mostrarProveedoresEnTabla(String[] nombresColumnas, List <Object[]> filas) {	
 		JScrollPane scrollTabla = mostrarEnTabla(nombresColumnas, filas, 450, 130, 650, 380);
 		panel.add(scrollTabla);
-		activarOpciones();
+	
 	}	
 	
 	public String mostrarCuadroEliminacionProveedor(String[] idProveedores) {

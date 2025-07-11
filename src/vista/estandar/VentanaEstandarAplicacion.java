@@ -54,7 +54,7 @@ public abstract class VentanaEstandarAplicacion extends JFrame{
 		JOptionPane.showMessageDialog(null, "No hay conexión a la base de datos \n" + detalleExcepcion);
 	}
 	
-	protected void activarOpciones() {
+	public void activarOpciones() {
 		for (Component c : panel.getComponents()) {
 			JButton boton = null;
 			if (c instanceof JButton) {

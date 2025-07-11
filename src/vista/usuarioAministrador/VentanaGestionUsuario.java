@@ -27,8 +27,8 @@ public class VentanaGestionUsuario extends VentanaEstandarAplicacion{
 	private JComboBox<String> roles;
 	private JDialog formulario;
 	
-	public VentanaGestionUsuario(String nombreVentana,String nombreUsuario,String apellidoUsuario, String nombreRol) {
-		super(nombreVentana, nombreUsuario, apellidoUsuario, nombreRol);
+	public VentanaGestionUsuario(String nombreUsuario,String apellidoUsuario, String nombreRol) {
+		super("Gestión de Usuario", nombreUsuario, apellidoUsuario, nombreRol);
 	
 		panel.add(agregarBoton("Volver", new ImageIcon("resources/images/imageBack.png"), 10, 10, 60, 40, 0, true));
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));
@@ -97,7 +97,7 @@ public class VentanaGestionUsuario extends VentanaEstandarAplicacion{
 	}
 	
 	public void agregarComboBox(String[] listaRoles,Integer[] listaLegajos) {
-		legajos = new JComboBox<>(listaLegajos);
+		legajos = new JComboBox<Integer>(listaLegajos);
 		roles = new JComboBox<String>(listaRoles);
 		legajos.setBounds(575, 530, 100, 30);
 		roles.setBounds(820, 530, 140, 30);

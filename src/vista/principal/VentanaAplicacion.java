@@ -1,7 +1,6 @@
 package vista.principal;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
@@ -17,7 +16,7 @@ public class VentanaAplicacion extends VentanaEstandarAplicacion{
 	public VentanaAplicacion(String nombreUsuario,String apellidoUsuario, String nombreRol) {
 		super("Inicio", nombreUsuario, apellidoUsuario, nombreRol);
 		panel.add(agregarLabel("Menu", 180, 40, 200, 50, 22));
-		panel.add(agregarBoton("Gestión de Usuario", 80, 90, 270, 60, 16, true));											  
+		panel.add(agregarBoton("Gestión de Usuario", 80, 90, 270, 60, 16, false));											  
 		panel.add(agregarBoton("Gestión de Proveedores", 80, 155, 270, 60, 16, true));
 		panel.add(agregarBoton("Gestión de Centro de Costos", 80, 220, 270, 60, 16, true));
 		panel.add(agregarBoton("Gestión de Gastos", 80, 285, 270, 60, 16, true));
@@ -25,15 +24,7 @@ public class VentanaAplicacion extends VentanaEstandarAplicacion{
 		panel.add(agregarBoton("Cerrar Sesión", 80, 520, 270, 60, 16, true));
 		panel.add(agregarBoton("Salir", 80, 585, 270, 60, 16, true));	
 	}
-	
-	public void deshabilitarGestionUsuario() {
-		for (Component c : panel.getComponents()) {
-		    if (c instanceof JButton && "Gestión de Usuario".equals(c.getName())) {
-		        c.setEnabled(false);
-		    }
-		}
-	}
-	
+		
 	@Override
 	public JButton agregarBoton(String nombre, int ubicacionX, int ubicacionY, int ancho, int alto, int tamanoFuente, boolean visible) {
 		boton = new JButton(nombre);
