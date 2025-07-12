@@ -8,8 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import controlador.estandar.ControladorGeneral;
+import modelo.dao.RolDAO;
 import modelo.dao.UsuarioAdministradorDAO;
-import modelo.entidades.Rol;
+import modelo.dao.UsuarioDAO;
 import modelo.entidades.Usuario;
 import vista.usuarioAministrador.VentanaGestionUsuario;
 
@@ -77,10 +78,11 @@ public class ControladorGestionUsuario extends ControladorGeneral {
 		try {
 			String[] nombresColumnas = {"LEGAJO","NOMBRE","APELLIDO","CONTRASEÑA","ROL"};
 			List <Object[]> filas = new ArrayList<Object[]>();
-			List <Usuario> usuarios = modelo.listarTodos(); 
-			List <Rol> roles = modelo.obtenerTodosLosRoles();
+			List <Usuario> usuarios = new UsuarioDAO().listarTodos(); 
 			Integer[] legajos = new Integer[usuarios.size()];
-			String[] nombresRoles = new String[roles.size()];
+			String[] nombresRoles = new RolDAO().listarTodos().stream()
+									.map(r -> r.getNombreRol())
+									.toArray(String[]::new);
 			int i = 0;
 			for(Usuario u : usuarios) {
 				Object[] fila = {
@@ -94,11 +96,6 @@ public class ControladorGestionUsuario extends ControladorGeneral {
 				legajos[i] = u.getLegajo();
 				i++;
 			}	
-			i = 0;
-			for(Rol r : roles) {
-				nombresRoles[i] = r.getNombreRol();
-				i++;
-			}
 			vista.mostrarUsuariosEnTabla(nombresColumnas, filas);
 			if(vista.getLegajos() == null) {
 				vista.agregarComboBox(nombresRoles, legajos);				
@@ -120,20 +117,19 @@ public class ControladorGestionUsuario extends ControladorGeneral {
 					vista.mostrarCambioExitoso();
 				}
 			}
+			
 		}catch(SQLException ex){
 			vista.mostrarMensajeErrorBD(ex.getLocalizedMessage());
-		}	
+		}finally {
+			manejarListarUsuario();
+		}
 	}
 
 	private void manejarEliminarUsuario() {
 		try {
-			List <Usuario> usuarios = modelo.listarTodos();	
-			String legajos[] = new String[usuarios.size()];
-			int i = 0;
-			for (Usuario u : usuarios) {
-				legajos[i] = String.valueOf(u.getLegajo());
-				i++;
-			}
+			String legajos[] = new UsuarioDAO().listarTodos().stream()
+								.map(u -> String.valueOf(u.getLegajo()))
+								.toArray(String[]::new);
 			String legajo = vista.mostrarCuadroEliminacionUsuario(legajos);
 			if(legajo.length() > 0) {
 				Integer numLegajo = Integer.parseInt(legajo);

@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 
 import controlador.estandar.ControladorGeneral;
-
+import modelo.dao.RolDAO;
+import modelo.dao.UsuarioAdministradorDAO;
 import modelo.dao.UsuarioDAO;
 import modelo.entidades.Rol;
 import modelo.entidades.Usuario;
@@ -17,10 +18,10 @@ import vista.usuarios.VentanaRegistro;
 public class ControladorRegistro extends ControladorGeneral {
 
 	VentanaRegistro vista;
-	UsuarioDAO modelo;
+	UsuarioAdministradorDAO modelo;
 	Usuario usuarioIncompleto;
 
-	public ControladorRegistro(VentanaRegistro vista, UsuarioDAO modelo) {
+	public ControladorRegistro(VentanaRegistro vista, UsuarioAdministradorDAO modelo) {
 		this.modelo = modelo;
 		this.vista = vista;
 
@@ -60,7 +61,7 @@ public class ControladorRegistro extends ControladorGeneral {
 
 			if(legajoValido) {
 				numLegajo = Integer.parseInt(legajo);
-				legajoSinUsuario = modelo.comprobarLegajoSinUsuario(numLegajo);
+				legajoSinUsuario = new UsuarioDAO().comprobarLegajoSinUsuario(numLegajo);
 			}
 
 			if(nombreValido && apellidoValido && legajoValido && legajoSinUsuario) {
@@ -89,7 +90,7 @@ public class ControladorRegistro extends ControladorGeneral {
 				String nombre = usuarioIncompleto.getNombre();
 				String apellido = usuarioIncompleto.getApellido();
 				int legajo = usuarioIncompleto.getLegajo();
-				Rol usuarioSinRol = modelo.obtenerRolUsuario(2);
+				Rol usuarioSinRol = new RolDAO().buscar(2);
 				Usuario usarioCreado = new Usuario(nombre, apellido, legajo, contrasena, usuarioSinRol);
 				if(modelo.crear(usarioCreado)) {
 					vista.mostrarMensajeUsuarioCreado();

@@ -1,8 +1,6 @@
 package vista.usuarioAministrador;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.util.List;
 
@@ -14,18 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-
-
 import vista.estandar.VentanaEstandarAplicacion;
 
 public class VentanaGestionUsuario extends VentanaEstandarAplicacion{
 	
 	private JComboBox<Integer> legajos;
 	private JComboBox<String> roles;
-	private JDialog formulario;
 	
 	public VentanaGestionUsuario(String nombreUsuario,String apellidoUsuario, String nombreRol) {
 		super("Gestión de Usuario", nombreUsuario, apellidoUsuario, nombreRol);
@@ -50,10 +43,6 @@ public class VentanaGestionUsuario extends VentanaEstandarAplicacion{
 
 	public JComboBox<String> getRoles() {
 		return roles;
-	}
-	
-	public JDialog getFormulario() {
-		return formulario;
 	}
 
 	public void mostrarUsuariosEnTabla(String[] nombresColumnas, List <Object[]> filas) {	

@@ -101,20 +101,15 @@ public class ControladorGestionProveedor extends ControladorGeneral{
 	}
 
 	private void manejarEliminarProveedor() {
-		try {
-			List <Proveedor> proveedores = modelo.listarTodos();	
-			String idProveedores[] = new String[proveedores.size()];
-			int i = 0;
-			for (Proveedor p : proveedores) {
-				idProveedores[i] = String.valueOf(p.getIdProveedor());
-				i++;
-			}
+		try {			
+			String idProveedores[] = modelo.listarTodos().stream()
+									.map(p -> String.valueOf(p.getIdProveedor()))
+									.toArray(String[]::new);
 			String idProveedor = vista.mostrarCuadroEliminacionProveedor(idProveedores);
 			if(idProveedor.length() > 0) {
 				Integer numIdProveedor = Integer.parseInt(idProveedor);
 				boolean esExitoso = modelo.eliminar(numIdProveedor);
 				if(esExitoso) {
-
 					vista.mostrarEliminacionExitoso(String.valueOf(numIdProveedor));
 				}	
 			}
