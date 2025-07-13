@@ -3,7 +3,7 @@ package modelo.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface DAOGeneral <T, ID>{
+public interface DAOGeneral  <T, ID>{
 	
 	public List<T> listarTodos() throws SQLException;
 	
